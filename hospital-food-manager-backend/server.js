@@ -23,7 +23,8 @@ app.use(cors(
         credentials: true
     }
     ));
-
+mongoose.connect('mongodb+srv://premkm016:ovLGHXdSLHfs9IMG@cluster1.00dla.mongodb.net/auth_db?retryWrites=true&w=majority&appName=Cluster1
+');
 // Log the MongoDB URI for debugging
 console.log('MongoDB URI:', process.env.MONGODB_URI);
 
