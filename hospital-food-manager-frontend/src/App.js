@@ -9,10 +9,12 @@ import Patient from './components/Patient'; // Import the Patient component
 import PatientList from './components/PatientList'; // Import the PatientList component
 import Delivery from './components/Delivery';
 import FoodPreparation from './components/FoodPreparation';
-
+import axios from 'axiso';
 
 const App = () => {
     const [user, setUser ] = useState(null);
+    const handleSubmit= (e) => {
+        axiso.post('hospital-managment-system-mern-api.vercel.app/dashboard') }
 
     return (
         <Router>
