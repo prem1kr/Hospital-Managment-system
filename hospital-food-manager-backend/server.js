@@ -16,6 +16,13 @@ dotenv.config(); // Load environment variables
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(cors(
+    {
+        origin: [ ],
+        methods: ["POST" , "GET"],
+        credentials: true
+    }
+    ));
 
 // Log the MongoDB URI for debugging
 console.log('MongoDB URI:', process.env.MONGODB_URI);
