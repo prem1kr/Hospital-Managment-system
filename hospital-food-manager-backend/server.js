@@ -16,15 +16,7 @@ dotenv.config(); // Load environment variables
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(cors(
-    {
-        origin: ["https://hospital-managment-system-frontent.vercel.app" ],
-        methods: ["POST" , "GET"],
-        credentials: true
-    }
-    ));
-mongoose.connect('mongodb+srv://premkm016:ovLGHXdSLHfs9IMG@cluster1.00dla.mongodb.net/auth_db?retryWrites=true&w=majority&appName=Cluster1
-');
+
 // Log the MongoDB URI for debugging
 console.log('MongoDB URI:', process.env.MONGODB_URI);
 
