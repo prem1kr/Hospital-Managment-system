@@ -232,7 +232,7 @@ hospital-food-management-system/
 
 ## Author
 
-- **Your Name**
+- **Prem Kumar**
 - GitHub: [prem1kr](https://github.com/prem1kr)
 - LinkedIn: [www.linkedin.com/in/prem-kumar-3b38b1290](https://www.linkedin.com/in/prem-kumar-3b38b1290/)
 
