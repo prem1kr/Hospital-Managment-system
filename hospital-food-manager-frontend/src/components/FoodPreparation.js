@@ -24,7 +24,7 @@ const FoodPreparation = () => {
     useEffect(() => {
         const fetchMeals = async () => {
             try {
-                const response = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/meals');
+                const response = await axios.get('http://localhost:5000/api/meals');
                 setMeals(response.data);
             } catch (err) {
                 console.error('Error fetching meals:', err);
@@ -38,7 +38,7 @@ const FoodPreparation = () => {
 
     const handleAddMeal = async () => {
         try {
-            const response = await axios.post('https://hospital-managment-system-2rbv.onrender.com/api/meals', newMeal);
+            const response = await axios.post('http://localhost:5000/api/meals', newMeal);
             setMeals([...meals, response.data]); // Add the new meal to the state
             setNewMeal({ type: '', details: '', preparationStatus: '', deliveryStatus: '' }); // Reset the input fields
             setOpenSnackbar(true);
@@ -51,7 +51,7 @@ const FoodPreparation = () => {
 
     const handleUpdatePreparationStatus = async (mealId, status) => {
         try {
-            await axios.put(`https://hospital-managment-system-2rbv.onrender.com/api/meals/${mealId}`, { preparationStatus: status });
+            await axios.put(`http://localhost:5000/api/meals/${mealId}`, { preparationStatus: status });
             setMeals(meals.map(meal => meal._id === mealId ? { ...meal, preparationStatus: status } : meal));
             setOpenSnackbar(true);
         } catch (err) {

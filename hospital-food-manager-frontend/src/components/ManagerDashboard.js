@@ -63,23 +63,23 @@ const ManagerDashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const patientResponse = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/patients/count');
+                const patientResponse = await axios.get('http://localhost:5000/api/patients/count');
                 setTotalPatients(patientResponse.data.count);
 
-                const mealsResponse = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/meals/prepared');
+                const mealsResponse = await axios.get('http://localhost:5000/api/meals/prepared');
                 setMealsPreparedToday(mealsResponse.data.count);
 
-                const pendingResponse = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/deliveries/pending');
+                const pendingResponse = await axios.get('http://localhost:5000/api/deliveries/pending');
                 setPendingDeliveries(pendingResponse.data.count);
 
-                const completedResponse = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/deliveries/completed');
+                const completedResponse = await axios.get('http://localhost:5000/api/deliveries/completed');
                 setCompletedDeliveries(completedResponse.data.count);
 
-                const recentDeliveriesResponse = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/deliveries/recent');
+                const recentDeliveriesResponse = await axios.get('http://localhost:5000/api/deliveries/recent');
                 setRecentDeliveries(recentDeliveriesResponse.data);
 
                 // Fetch meal data for the bar chart
-                const mealDataResponse = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/meals/data'); // Adjust this endpoint as needed
+                const mealDataResponse = await axios.get('http://localhost:5000/api/meals/data'); // Adjust this endpoint as needed
                 const mealData = mealDataResponse.data; // Assuming this returns an array of meal counts by day
 
                 // Prepare data for the bar chart
