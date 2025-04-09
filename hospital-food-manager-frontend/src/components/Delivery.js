@@ -25,7 +25,7 @@ const Delivery = () => {
     useEffect(() => {
         const fetchDeliveries = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/deliveries');
+                const response = await axios.get('https://hospital-managment-system-9p11.onrender.com/api/deliveries');
                 setDeliveries(response.data);
             } catch (err) {
                 console.error('Error fetching deliveries:', err);
@@ -36,7 +36,7 @@ const Delivery = () => {
 
         const fetchMealDeliveries = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/meal-deliveries'); // Fetch meal deliveries
+                const response = await axios.get('https://hospital-managment-system-9p11.onrender.com/api/meal-deliveries'); // Fetch meal deliveries
                 setMealDeliveries(response.data);
             } catch (err) {
                 console.error('Error fetching meal deliveries:', err);
@@ -51,7 +51,7 @@ const Delivery = () => {
 
     const handleMarkAsDone = async (delivery) => {
         try {
-            await axios.put(`http://localhost:5000/api/deliveries/${delivery._id}`, {
+            await axios.put(`https://hospital-managment-system-9p11.onrender.com/api/deliveries/${delivery._id}`, {
                 ...delivery,
                 status: 'Done',
                 deliveryTime: new Date(),
@@ -70,7 +70,7 @@ const Delivery = () => {
 
     const handleUpdateDeliveryStatus = async (mealId) => {
         try {
-            await axios.put(`http://localhost:5000/api/meal-deliveries/${mealId}`, { status: 'Delivered' });
+            await axios.put(`https://hospital-managment-system-9p11.onrender.com/api/meal-deliveries/${mealId}`, { status: 'Delivered' });
             setMealDeliveries(mealDeliveries.map(meal => meal._id === mealId ? { ...meal, status: 'Delivered' } : meal));
             setOpenSnackbar(true);
         } catch (err) {
