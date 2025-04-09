@@ -12,7 +12,7 @@ const Signup = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/signup', { email, password, role });
+            const response = await axios.post('https://hospital-managment-system-9p11.onrender.com/api/auth/signup', { email, password, role });
             alert('User  registered successfully');
             // Optionally, you can redirect or clear the form here
         } catch (err) {
