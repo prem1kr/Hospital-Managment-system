@@ -31,7 +31,7 @@ const PantryDashboard = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/tasks');
+                const response = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/tasks');
                 setTasks(response.data);
             } catch (err) {
                 console.error('Error fetching tasks:', err);
@@ -44,7 +44,7 @@ const PantryDashboard = () => {
 
         const fetchMeals = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/meals'); // Fetch meals data
+                const response = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/meals'); // Fetch meals data
                 setMeals(response.data);
             } catch (err) {
                 console.error('Error fetching meals:', err);
@@ -55,7 +55,7 @@ const PantryDashboard = () => {
 
         const fetchDeliveryPersonnel = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/delivery-personnel');
+                const response = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/delivery-personnel');
                 setDeliveryPersonnel(response.data);
             } catch (err) {
                 console.error('Error fetching delivery personnel:', err);
@@ -66,7 +66,7 @@ const PantryDashboard = () => {
 
         const fetchMealDeliveries = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/meal-deliveries');
+                const response = await axios.get('https://hospital-managment-system-2rbv.onrender.com/api/meal-deliveries');
                 setMealDeliveries(response.data);
             } catch (err) {
                 console.error('Error fetching meal deliveries:', err);
@@ -87,7 +87,7 @@ const PantryDashboard = () => {
 
     const handleAddPersonnel = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/api/delivery-personnel', newPersonnel);
+            const response = await axios.post('https://hospital-managment-system-2rbv.onrender.com/api/delivery-personnel', newPersonnel);
             setDeliveryPersonnel([...deliveryPersonnel, response.data]);
             setNewPersonnel({ name: '', contactInfo: '', otherDetails: '' });
             setOpenSnackbar(true);
@@ -105,7 +105,7 @@ const PantryDashboard = () => {
 
     const handleUpdatePersonnel = async () => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/delivery-person nel/${editingPersonnel._id}`, newPersonnel);
+            const response = await axios.put(`https://hospital-managment-system-2rbv.onrender.com/api/delivery-person nel/${editingPersonnel._id}`, newPersonnel);
             setDeliveryPersonnel(deliveryPersonnel.map(personnel => personnel._id === editingPersonnel._id ? response.data : personnel));
             setEditingPersonnel(null);
             setNewPersonnel({ name: '', contactInfo: '', otherDetails: '' });
@@ -119,7 +119,7 @@ const PantryDashboard = () => {
 
     const handleUpdateDeliveryStatus = async (mealId) => {
         try {
-            await axios.put(`http://localhost:5000/api/meal-deliveries/${mealId}`, { status: 'Delivered' });
+            await axios.put(`https://hospital-managment-system-2rbv.onrender.com/api/meal-deliveries/${mealId}`, { status: 'Delivered' });
             setMealDeliveries(mealDeliveries.map(meal => meal._id === mealId ? { ...meal, status: 'Delivered' } : meal));
             setOpenSnackbar(true);
         } catch (err) {
@@ -131,7 +131,7 @@ const PantryDashboard = () => {
 
     const handleAddMealDelivery = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/api/meal-deliveries', newMealDelivery);
+            const response = await axios.post('https://hospital-managment-system-2rbv.onrender.com/api/meal-deliveries', newMealDelivery);
             setMealDeliveries([...mealDeliveries, response.data]);
             setNewMealDelivery({ patientInfo: '', roomNumber: '', dietChartDetails: '' });
             setOpenSnackbar(true);
