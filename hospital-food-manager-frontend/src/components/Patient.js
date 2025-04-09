@@ -38,7 +38,7 @@ const Patient = () => {
       // Fetch patient data if editing
       const fetchPatient = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/patients/${id}`);
+          const response = await axios.get(`https://hospital-managment-system-2rbv.onrender.com/api/patients/${id}`);
           setPatient(response.data);
         } catch (error) {
           console.error('Error fetching patient data:', error);
@@ -63,10 +63,10 @@ const Patient = () => {
     try {
       if (id) {
         // Update existing patient
-        await axios.put(`http://localhost:5000/api/patients/${id}`, patient);
+        await axios.put(`https://hospital-managment-system-2rbv.onrender.com/api/patients/${id}`, patient);
       } else {
         // Create new patient
-        await axios.post('http://localhost:5000/api/patients', patient);
+        await axios.post('https://hospital-managment-system-2rbv.onrender.com/api/patients', patient);
         // Call the function to update the patient count
         if (location.state && location.state.updatePatientCount) {
           location.state.updatePatientCount();
